@@ -2,7 +2,7 @@
 set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-# shellcheck source=../lib/common.sh
+# shellcheck source=lib/common.sh
 source "$REPO_DIR/lib/common.sh"
 
 copy_executable "$(repo_path scripts/odin-gamemode)" "/usr/local/bin/odin-gamemode"

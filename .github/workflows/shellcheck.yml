@@ -26,5 +26,5 @@ jobs:
 
       - name: Shellcheck
         run: |
-          shellcheck -x install.sh
-          find lib modules scripts -type f -print0 | xargs -0 -r shellcheck -x
+          shellcheck -x -P . install.sh
+          find lib modules scripts -type f -print0 | xargs -0 -r shellcheck -x -P .

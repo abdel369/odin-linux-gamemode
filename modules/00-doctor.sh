@@ -81,7 +81,7 @@ OUT="$LOG_DIR/doctor-$(date +%Y%m%d-%H%M%S).log"
     echo "FEX not installed"
   fi
   if command -v FEXBash >/dev/null 2>&1; then
-    FEXBash -c 'echo "FEX uname: $(uname -m)"' || true
+    FEXBash -c 'echo -n "FEX uname: "; uname -m' || true
   fi
   echo
 
