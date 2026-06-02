@@ -34,7 +34,7 @@ Armbian gives flexibility, but handheld Linux updates and gaming stacks are frag
 Clone the repo on a fresh Armbian install:
 
 ```bash
-git clone https://github.com/YOURNAME/odin-linux-gamemode.git
+git clone https://github.com/abdel369/odin-linux-gamemode.git
 cd odin-linux-gamemode
 ./install.sh --doctor
 ./install.sh --apt-guard

@@ -1,2 +1,5 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Keep scripts/workflows as normal LF text files.
+* text=auto eol=lf
+*.sh text eol=lf
+scripts/* text eol=lf
+.github/workflows/*.yml text eol=lf
