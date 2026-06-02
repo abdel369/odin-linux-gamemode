@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+export XDG_SESSION_TYPE=wayland
+export SDL_VIDEODRIVER=wayland
+export QT_QPA_PLATFORM="wayland;xcb"
+export MANGOHUD="${MANGOHUD:-0}"
+
+GAMESCOPE_WIDTH="${ODIN_GAMESCOPE_WIDTH:-1920}"
+GAMESCOPE_HEIGHT="${ODIN_GAMESCOPE_HEIGHT:-1080}"
+GAME_WIDTH="${ODIN_GAME_WIDTH:-1280}"
+GAME_HEIGHT="${ODIN_GAME_HEIGHT:-720}"
+REFRESH="${ODIN_REFRESH:-60}"
+
+if ! command -v gamescope >/dev/null 2>&1; then
+  echo "gamescope not found; falling back to plain Steam gamepad UI" >&2
+  exec steam -gamepadui "$@"
+fi
+
+exec gamescope \
+  -W "$GAMESCOPE_WIDTH" -H "$GAMESCOPE_HEIGHT" \
+  -w "$GAME_WIDTH" -h "$GAME_HEIGHT" \
+  -r "$REFRESH" \
+  -f \
+  -- steam -gamepadui "$@"

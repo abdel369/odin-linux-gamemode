@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+PROTECTED_REGEX='^(linux-image|linux-dtb|linux-headers|linux-u-boot|armbian-bsp|armbian-firmware)'
+
+echo "[odin] Updating package lists..."
+sudo apt-get update
+
+echo "[odin] Simulating upgrade..."
+SIM="$(apt-get -s upgrade || true)"
+BAD="$(printf '%s\n' "$SIM" | awk '/^Inst /{print $2}' | grep -E "$PROTECTED_REGEX" || true)"
+
+if [[ -n "$BAD" ]]; then
+  echo "[odin:error] Upgrade wants to touch protected boot/kernel packages:" >&2
+  printf '%s\n' "$BAD" >&2
+  echo >&2
+  echo "Refusing. This is intentional because Armbian kernel/DTB/boot changes can break handheld boots." >&2
+  echo "For experimental kernel upgrades, remove holds/pinning manually after backing up the SD card." >&2
+  exit 1
+fi
+
+echo "[odin] No protected boot/kernel packages in simulated upgrade. Continuing..."
+sudo apt-get upgrade

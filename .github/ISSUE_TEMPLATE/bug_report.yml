@@ -1,0 +1,41 @@
+name: Bug report
+about: Report an installer, Armbian, FEX, Gamescope, or Steam issue
+title: "bug: "
+labels: [bug]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: doctor
+    attributes:
+      label: odin-doctor output
+      description: Paste relevant parts or attach the full log.
+      render: text
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device
+      placeholder: Odin 2 Pro / Odin 2 Portal Max
+    validations:
+      required: true
+  - type: input
+    id: image
+    attributes:
+      label: OS image
+      placeholder: Armbian Ubuntu/Debian image date + kernel
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction steps
+      render: shell
+    validations:
+      required: true

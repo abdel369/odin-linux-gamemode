@@ -1,0 +1,22 @@
+game: Stardew Valley
+steam_appid: 413150
+reports:
+  - device: AYN Odin 2
+    os_image: Armbian
+    kernel: "6.13.x"
+    date_context: "approx. two months before 2026-06-01"
+    steam_mode: "linux x86_64 via FEX"
+    game_binary: "Linux x86_64 assumed; verify from Steam files"
+    gamescope: unknown
+    result: playable
+    notes:
+      - "User reported Stardew Valley native Linux build worked on Armbian + FEX."
+  - device: AYN Odin 2 / Portal family
+    os_image: ROCKNIX
+    date_context: "approx. three weeks before 2026-06-01"
+    steam_mode: unknown
+    runtime: "multiple tested"
+    proton: "multiple tested"
+    result: crash_on_launch
+    notes:
+      - "User reported immediate crash regardless of Linux runtime / Proton choice."

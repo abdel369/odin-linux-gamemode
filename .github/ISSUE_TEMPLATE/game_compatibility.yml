@@ -1,0 +1,64 @@
+name: Game compatibility report
+about: Report whether a game works
+title: "compat: "
+labels: [compatibility]
+body:
+  - type: input
+    id: game
+    attributes:
+      label: Game name
+    validations:
+      required: true
+  - type: input
+    id: appid
+    attributes:
+      label: Steam AppID or source
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Execution mode
+      options:
+        - Linux ARM64 native
+        - Linux x86_64 via FEX
+        - Windows x86_64 via Proton + FEX
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device
+    validations:
+      required: true
+  - type: input
+    id: kernel
+    attributes:
+      label: Kernel
+  - type: input
+    id: mesa
+    attributes:
+      label: Mesa / Vulkan driver
+  - type: input
+    id: fex
+    attributes:
+      label: FEX version
+  - type: input
+    id: proton
+    attributes:
+      label: Proton / runtime
+  - type: dropdown
+    id: result
+    attributes:
+      label: Result
+      options:
+        - Playable
+        - Boots but issues
+        - Crash on launch
+        - Does not install
+        - Untested
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes / logs

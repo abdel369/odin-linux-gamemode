@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Odin Game Mode
+Comment=Gamescope + Steam Gamepad UI session for Odin Linux GameMode
+Exec=/usr/local/bin/odin-gamemode
+Type=Application
+DesktopNames=OdinGameMode

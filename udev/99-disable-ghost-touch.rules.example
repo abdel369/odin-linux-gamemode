@@ -1,0 +1,3 @@
+# Example only. Do not install blindly.
+# Replace PUT_EXACT_TOUCHSCREEN_NAME_HERE with the exact name from `libinput list-devices`.
+ACTION=="add|change", SUBSYSTEM=="input", ATTRS{name}=="PUT_EXACT_TOUCHSCREEN_NAME_HERE", ENV{LIBINPUT_IGNORE_DEVICE}="1"
